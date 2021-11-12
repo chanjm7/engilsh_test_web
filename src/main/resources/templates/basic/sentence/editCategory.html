@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>카테고리 수정</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>이름</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.id}"></td>
+        <td><a th:href="@{/sentence/categories/{categoryId}/edit(categoryId=${category.id})}" th:text="${category.name}"></a></td>
+    </tr>
+    </tbody>
+</table>
+<button th:onclick="|location.href='@{/sentence/categories}'|">카테고리 목록으로</button>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>문장 수정 폼</h1>
+<form th:action method="post" th:object="${sentence}">
+    <label for="sentence">문장</label>
+    <input id="sentence" name="english" th:value="*{english}" placeholder="문장을 입력해주세요">
+
+    <label for="mean">뜻</label>
+    <input id="mean" name="mean" th:value="*{mean}" placeholder="뜻을 입력해주세요">
+
+    <label for="keyword">키워드</label>
+    <input id="keyword" name="keyword" th:value="*{keyword}" placeholder="키워드를 입력해주세요">
+
+    <button type="summit">수정</button>
+</form>
+</body>
+</html>

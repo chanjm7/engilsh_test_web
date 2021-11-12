@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>문장 목록</h2>
+<!--<h3 th:text="${category.name}"></h3>-->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>카테고리ID</th>
+        <th>문장</th>
+        <th>뜻</th>
+        <th>키워드</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sentence : ${sentences}">
+        <td ><a th:href="@{{url}/{sentenceId}/edit(url=${#httpServletRequest.requestURI}, sentenceId=${sentence.id})}"
+                th:text="${sentence.id}"></a></td>
+        <td ><a th:href="@{{url}/{sentenceId}/edit(url=${#httpServletRequest.requestURI}, sentenceId=${sentence.id})}"
+                th:text="${sentence.categoryId}"></a></td>
+        <td ><a th:href="@{{url}/{sentenceId}/edit(url=${#httpServletRequest.requestURI}, sentenceId=${sentence.id})}"
+                th:text="${sentence.english}"></a></td>
+        <td ><a th:href="@{{url}/{sentenceId}/edit(url=${#httpServletRequest.requestURI}, sentenceId=${sentence.id})}"
+                th:text="${sentence.mean}"></a></td>
+        <td ><a th:href="@{{url}/{sentenceId}/edit(url=${#httpServletRequest.requestURI}, sentenceId=${sentence.id})}"
+                th:text="${sentence.keyword}"></a></td>
+    </tr>
+    </tbody>
+</table>
+<button th:onclick="|location.href='@{{url}/add(url=${#httpServletRequest.requestURI})}'|">문장추가</button>
+<button th:onclick="|location.href='@{/sentence/categories}'|">카테고리 목록으로</button>
+
+</body>
+</html>
